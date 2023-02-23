@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="binancePrice_response" format="json">
+      <types:shape format="weave" example="examples/binancePrice.json"><![CDATA[%dw 2.0
+
+type binancePrice_response = {|
+  symbol: String, 
+  price: String
+|} {"example": "{\\\"symbol\\\":\\\"BTCEUR\\\",\\\"price\\\":\\\"19338.88000000\\\"}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="prices_output" format="json">
+      <types:shape format="weave" example="examples/prices_output.json"><![CDATA[%dw 2.0
+
+type prices_output = {|
+  binancePrice: Number {"typeId": "int"}, 
+  coinbasePrice: Number {"typeId": "int"}, 
+  kucoinPrice: Number {"typeId": "int"}
+|} {"example": "{\\\"binancePrice\\\":0,\\\"coinbasePrice\\\":0,\\\"kucoinPrice\\\":0}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="coinbasePrice_response" format="json">
+      <types:shape format="weave" example="examples/coinbasePrice_response.json"><![CDATA[%dw 2.0
+
+type coinbasePrice_response = {|
+  data: {|
+    base: String, 
+    currency: String, 
+    amount: String
+  |}
+|} {"example": "{\\\"data\\\":{\\\"base\\\":\\\"BTC\\\",\\\"currency\\\":\\\"EUR\\\",\\\"amount\\\":\\\"19436.08\\\"}}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="kucoinPrice_response" format="json">
+      <types:shape format="weave" example="examples/kucoinPrice_response.json"><![CDATA[%dw 2.0
+
+type kucoinPrice_response = {|
+  code: String, 
+  data: {|
+    time: Number {"typeId": "double"}, 
+    symbol: String, 
+    buy: String, 
+    sell: String, 
+    changeRate: String, 
+    changePrice: String, 
+    high: String, 
+    low: String, 
+    vol: String, 
+    volValue: String, 
+    last: String, 
+    averagePrice: String, 
+    takerFeeRate: String, 
+    makerFeeRate: String, 
+    takerCoefficient: String, 
+    makerCoefficient: String
+  |}
+|} {"example": "{\\\"code\\\":\\\"200000\\\",\\\"data\\\":{\\\"time\\\":1674215426238,\\\"symbol\\\":\\\"BTC-USDT\\\",\\\"buy\\\":\\\"20977.1\\\",\\\"sell\\\":\\\"20977.2\\\",\\\"changeRate\\\":\\\"0.0112\\\",\\\"changePrice\\\":\\\"233.7\\\",\\\"high\\\":\\\"21221\\\",\\\"low\\\":\\\"20661.1\\\",\\\"vol\\\":\\\"6600.42962872\\\",\\\"volValue\\\":\\\"138302472.875850283\\\",\\\"last\\\":\\\"20977.2\\\",\\\"averagePrice\\\":\\\"20791.289499\\\",\\\"takerFeeRate\\\":\\\"0.001\\\",\\\"makerFeeRate\\\":\\\"0.001\\\",\\\"takerCoefficient\\\":\\\"1\\\",\\\"makerCoefficient\\\":\\\"1\\\"}}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="currency" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: integer]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#72946c67-1e08-4e49-b027-317559412487">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="binancePrice_response"/>
+        </types:message>
+        <types:variables>
+          <types:variable name="initial_body" type="binancePrice_response"/>
+        </types:variables>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="prices_output"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#7f012a6f-43cf-40b1-92d2-d6ad5f3c8b56">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:variables>
+          <types:variable name="initial_body" type="coinbasePrice_response"/>
+        </types:variables>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="prices_output"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#33b8d994-39a5-417c-bc6c-d63552637006">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="kucoinPrice_response"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#94d76ea4-6c06-463d-b35b-1f423657a146">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="binancePrice_response"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#c322267f-edec-4aa2-bd45-f94eea4f6e60">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="coinbasePrice_response"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

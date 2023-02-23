@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6a9d9042-46f4-4d7e-bca8-dfd23550aa6c" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration_binance_usd" doc:name="HTTP Request configuration" doc:id="016c3b6d-fb06-4409-b98d-5abc7b70e9c9" >
+		<http:request-connection host="https://api2.binance.com/api/v3/ticker/price?symbol=BTCUSDT" />
+	</http:request-config>
+	<http:request-config name="HTTP_Request_configuration_binance_eur" doc:name="HTTP Request configuration" doc:id="f0ac300c-7a5f-49d1-b0fb-1c87de6d30e5">
+		<http:request-connection host="https://api2.binance.com/api/v3/ticker/price?symbol=BTCEUR" />
+	</http:request-config>
+	<http:request-config name="HTTP_Request_configuration_coinbase_usd" doc:name="HTTP Request configuration" doc:id="10dee9b0-5b0a-4457-88ab-b0a41715b7aa" >
+		<http:request-connection host="https://api.coinbase.com/v2/prices/BTC-EUR/buy/" />
+	</http:request-config>
+	<http:request-config name="HTTP_Request_configuration_kucoin_usd" doc:name="HTTP Request configuration" doc:id="66172e7e-75d2-469c-9e71-791815a0ef4c" >
+		<http:request-connection host="https://api.kucoin.com/api/v1/market/stats?symbol=BTC-USD" />
+	</http:request-config>
+	<http:request-config name="HTTP_Request_configuration_coinbase_eur" doc:name="HTTP Request configuration" doc:id="695c8bd6-5ead-4c43-8d3a-633284965bb3" >
+		<http:request-connection host="https://api.coinbase.com/v2/prices/BTC-EUR/buy/" />
+	</http:request-config>
+	<http:request-config name="HTTP_Request_configuration_kucoin_eur" doc:name="HTTP Request configuration" doc:id="03a95b7a-4276-4ffd-9605-1c3577dceafb" >
+		<http:request-connection host="https://api.kucoin.com/api/v1/market/stats?symbol=BTC-EUR" />
+	</http:request-config>
+	<flow name="isi_projectFlow" doc:id="36376ed1-8d44-4872-9866-675680ed126c" >
+		<http:listener doc:name="Listener" doc:id="d7ae109b-791e-45a9-b857-965073459c9b" path="/getcurrency" config-ref="HTTP_Listener_config"/>
+		<logger level="INFO" doc:name="Logger" doc:id="df4cc699-51f7-4256-a0af-1f957462d053" message="Uruchomiono usługę getCurrency z parametrem waluty: #[attributes.queryParams.currency]"/>
+		<set-variable value="#[payload]" doc:name="Set Variable" doc:id="6f94acb5-fa07-4c52-a5d6-4159108a84ff" variableName="initial_body"/>
+<!-- [STUDIO:"Choice"]		<choice doc:name="Choice" doc:id="d5698158-651a-4776-adda-fcd28728d741" >
+			<when expression='#[attributes.queryParams.currency == "USD"]'>
+				<http:request method="GET" doc:name="Request" doc:id="c52af5ee-6cac-44bb-9a90-cf6c2cb66ecb" url="https://api2.binance.com/api/v3/ticker/price?symbol=BTCUSDT" config-ref="HTTP_Request_configuration_binance_usd" />
+				<ee:transform doc:name="Transform Message" doc:id="72946c67-1e08-4e49-b027-317559412487">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+&#45;&#45;-
+{
+	binancePrice: payload.price as Number
+}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+				<logger level="INFO" doc:name="Logger" doc:id="b70c6df6-9b9b-4b9d-a0a5-70ea06c1b680" message="Cena BTC/USD na giełdzie Binance to:  #[payload.binancePrice]" />
+				<http:request method="GET" doc:name="Request" doc:id="81c178a5-4ba8-408f-9624-b4adbece6a33" config-ref="HTTP_Request_configuration_coinbase_usd" url="https://api.coinbase.com/v2/prices/BTC-EUR/buy/"/>
+				<ee:transform doc:name="Transform Message1" doc:id="7f012a6f-43cf-40b1-92d2-d6ad5f3c8b56">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+&#45;&#45;-
+{
+	coinbasePrice: payload.data.amount as Number
+}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+				<logger level="INFO" doc:name="Logger" doc:id="0b999d69-5300-4baf-8728-8098423b69c0" message="Cena BTC/USD na giełdzie Coinabase to: #[payload.coinbasePrice] \n Cena BTC/USD na giełdzie Binance to:  #[payload.binancePrice]"/>
+				<http:request method="GET" doc:name="Request" doc:id="d20498eb-6943-435c-b769-e5c3653fa258" config-ref="HTTP_Request_configuration_kucoin_usd" url="https://api.kucoin.com/api/v1/market/stats?symbol=BTC-USDT"/>
+				<logger level="INFO" doc:name="Logger" doc:id="0155f008-3c44-4889-b543-0c345e6326b0" message="Cena BTC/USD na giełdzie KuCoin to:  #[payload.data.sell]"/>
+				<http:request method="GET" doc:name="Request" doc:id="5664c324-6fb8-443c-b955-ff85a96a7d5e" />
+			</when>
+			<otherwise >
+				<http:request method="GET" doc:name="Request" doc:id="f843f80b-074f-4731-84ef-509de01f07c8" config-ref="HTTP_Request_configuration_binance_eur" url="https://api2.binance.com/api/v3/ticker/price?symbol=BTCEUR"/>
+				<logger level="INFO" doc:name="Logger" doc:id="3988c3f0-e51e-45b4-8be3-a1fe6bd5ac28" message="Cena BTC/EUR na giełdzie Binance to:  #[payload.price]"/>
+				<http:request method="GET" doc:name="Request" doc:id="5a9ca885-d02a-4470-9b9a-831fa315ae91" config-ref="HTTP_Request_configuration_coinbase_usd" url="https://api.coinbase.com/v2/prices/BTC-EUR/buy/"/>
+				<logger level="INFO" doc:name="Logger" doc:id="a48a1326-4273-4977-bcb1-95bc4efdedeb" message="Cena BTC/EUR na giełdzie Coinabase to: #[payload.data.amount]"/>
+				<http:request method="GET" doc:name="Request" doc:id="abbb9361-d535-4500-8a73-77f9da185c5c" config-ref="HTTP_Request_configuration_kucoin_eur" url="https://api.kucoin.com/api/v1/market/stats?symbol=BTC-EUR"/>
+				<logger level="INFO" doc:name="Logger" doc:id="63575d96-c0b7-4a15-a8db-7a7034db922c" message="Cena BTC/EUR na giełdzie KuCoin to:  #[payload.data.sell]"/>
+			</otherwise>
+		</choice> [STUDIO] -->
+	</flow>
+</mule>

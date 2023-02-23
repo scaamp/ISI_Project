@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="BinanceBTCUSDPriceFlow" doc:id="0fafd7b4-1ac8-4a17-96b8-893635e858c5" >
+		<http:listener doc:name="Listener" doc:id="09ad0555-6b7d-44da-baac-51cbcc4b3a2a" config-ref="HTTP_Listener_config" path="/binance/usd"/>
+		<http:request method="GET" doc:name="Request" doc:id="61a81f2f-29ee-41fc-aff0-fc110b3eef3f" config-ref="HTTP_Request_configuration_binance_usd" url="https://api2.binance.com/api/v3/ticker/price?symbol=BTCUSDT" />
+		<ee:transform doc:name="Transform Message" doc:id="94d76ea4-6c06-463d-b35b-1f423657a146" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	binancePrice: payload.price
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="97314bef-17d1-4b23-b80f-b7134324d22d" >
+		<http:request-connection host="0.0.0.0" port="8081"/>
+	</http:request-config>
+	<flow name="CurrencyFlow" doc:id="5f742697-d5a1-4d4a-9e3b-6da88b8bccad" >
+		<http:listener doc:name="Listener" doc:id="f5df48d3-46b9-404e-94de-d85343ec8da5" config-ref="HTTP_Listener_config" path="/currency" />
+		<logger level="INFO" doc:name="Logger" doc:id="bb0225d0-7cf1-412d-9095-7d7ed2199a2c" message="Uruchomiono usługę getCurrency z parametrem waluty: #[attributes.queryParams.currency]" />
+		<!-- [STUDIO:"Choice"]		<choice doc:name="Choice" doc:id="2e628b0e-b67b-439c-8cba-2c8467b5d031" >
+			<when expression='attributes.queryParams.currency == "USD"'>
+				<http:request method="GET" doc:name="Request" doc:id="26859b7b-cbc1-468b-80be-32c4f786c87d" config-ref="HTTP_Request_configuration" path="/coinbase/usd"/>
+				<http:request method="GET" doc:name="Request" doc:id="b9cf51f5-bf9d-4fc3-8377-57ccdb379467" config-ref="HTTP_Request_configuration" path="/kucoin/usd"/>
+				<http:request method="GET" doc:name="Request" doc:id="da950749-3421-49cb-8f35-43b112d42b55" path="/coinbase/usd" config-ref="HTTP_Request_configuration"/>
+			</when>
+			<otherwise >
+				<http:request method="GET" doc:name="Request" doc:id="09f70766-c00c-472b-b1a9-8c43339220f2" path="/binance/eur" config-ref="HTTP_Request_configuration"/>
+				<http:request method="GET" doc:name="Request" doc:id="4b0bff56-63b3-4172-acb4-90b09f09451d" config-ref="HTTP_Request_configuration" path="/kucoin/eur"/>
+				<http:request method="GET" doc:name="Request" doc:id="6ce95a66-8c62-46f1-b211-a5112f9b924f" path="/coinbase/eur" config-ref="HTTP_Request_configuration"/>
+			</otherwise>
+		</choice> [STUDIO] -->
+	</flow>
+</mule>

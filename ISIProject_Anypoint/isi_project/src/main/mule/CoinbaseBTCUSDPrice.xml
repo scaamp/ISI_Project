@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="CoinbaseBTCUSDPriceFlow" doc:id="3ac01b6e-9f8c-4b8d-85ce-a5956ce3c9f0" >
+		<http:listener doc:name="Listener" doc:id="eaa2f3cc-6a55-40a3-96a8-26e2a1d4cde5" config-ref="HTTP_Listener_config" path="/coinbase/usd"/>
+		<http:request method="GET" doc:name="Request" doc:id="a634a665-dae5-46a5-9183-574e708dba6a" config-ref="HTTP_Request_configuration_coinbase_usd" url="https://api.coinbase.com/v2/prices/BTC-USD/buy/" />
+		<ee:transform doc:name="Transform Message" doc:id="c322267f-edec-4aa2-bd45-f94eea4f6e60" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	coinbasePrice: payload.data.amount
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

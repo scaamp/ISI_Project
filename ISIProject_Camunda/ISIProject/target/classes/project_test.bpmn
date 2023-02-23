@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_135oste" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.7.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <bpmn:process id="Process_0a9fgeg" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_09vwpin</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_1foagmv" name="GetCurrencyClient" camunda:class="org.example.GetCurrencyClient">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_05hmsju</bpmn:incoming>
+      <bpmn:outgoing>Flow_1534p0m</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0grqz2w" name="GetBTCEURBinancePrice" camunda:class="org.example.GetBTCEURBinancePrice">
+      <bpmn:incoming>Flow_1oqmjg2</bpmn:incoming>
+      <bpmn:outgoing>Flow_071l7oz</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0ahxc3c" name="GetBTCUSDBinancePrice" camunda:class="org.example.GetBTCUSDBinancePrice">
+      <bpmn:incoming>Flow_01i2xzr</bpmn:incoming>
+      <bpmn:outgoing>Flow_0chaoeq</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_1o98k5e">
+      <bpmn:incoming>Flow_1534p0m</bpmn:incoming>
+      <bpmn:outgoing>Flow_01i2xzr</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1oqmjg2</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1534p0m" sourceRef="Activity_1foagmv" targetRef="Gateway_1o98k5e" />
+    <bpmn:sequenceFlow id="Flow_01i2xzr" sourceRef="Gateway_1o98k5e" targetRef="Activity_0ahxc3c">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${currency=="USD"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1oqmjg2" sourceRef="Gateway_1o98k5e" targetRef="Activity_0grqz2w">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${currency=="EUR"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="Activity_15i40in" name="GetBestSelect" camunda:class="org.example.BestSelect">
+      <bpmn:incoming>Flow_0vg0yxm</bpmn:incoming>
+      <bpmn:incoming>Flow_0v0abd5</bpmn:incoming>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0a631tx" name="GetBTCUSDKucoinPrice" camunda:class="org.example.GetBTCUSDKucoinPrice">
+      <bpmn:incoming>Flow_0chaoeq</bpmn:incoming>
+      <bpmn:outgoing>Flow_1kbjpz2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0chaoeq" sourceRef="Activity_0ahxc3c" targetRef="Activity_0a631tx" />
+    <bpmn:serviceTask id="Activity_0erpte3" name="GetBTCUSDCoinbasePrice" camunda:class="org.example.GetBTCUSDCoinbasePrice">
+      <bpmn:incoming>Flow_1kbjpz2</bpmn:incoming>
+      <bpmn:outgoing>Flow_0vg0yxm</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1kbjpz2" sourceRef="Activity_0a631tx" targetRef="Activity_0erpte3" />
+    <bpmn:sequenceFlow id="Flow_0vg0yxm" sourceRef="Activity_0erpte3" targetRef="Activity_15i40in" />
+    <bpmn:sequenceFlow id="Flow_09vwpin" sourceRef="StartEvent_1" targetRef="Activity_19op8jl" />
+    <bpmn:sequenceFlow id="Flow_05hmsju" sourceRef="Activity_19op8jl" targetRef="Activity_1foagmv" />
+    <bpmn:serviceTask id="Activity_19op8jl" name="GetUser" camunda:class="org.example.GetUser">
+      <bpmn:incoming>Flow_09vwpin</bpmn:incoming>
+      <bpmn:outgoing>Flow_05hmsju</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_10wxh5v" name="GetBTCEURKucoinPrice" camunda:class="org.example.GetBTCEURKucoinPrice">
+      <bpmn:incoming>Flow_071l7oz</bpmn:incoming>
+      <bpmn:outgoing>Flow_0tziutw</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0spuve4" name="GetBTCEURCoinbasePrice" camunda:class="org.example.GetBTCEURCoinbasePrice">
+      <bpmn:incoming>Flow_0tziutw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0v0abd5</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_071l7oz" sourceRef="Activity_0grqz2w" targetRef="Activity_10wxh5v" />
+    <bpmn:sequenceFlow id="Flow_0tziutw" sourceRef="Activity_10wxh5v" targetRef="Activity_0spuve4" />
+    <bpmn:sequenceFlow id="Flow_0v0abd5" sourceRef="Activity_0spuve4" targetRef="Activity_15i40in" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0a9fgeg">
+      <bpmndi:BPMNShape id="Activity_0ppllk4_di" bpmnElement="Activity_1foagmv">
+        <dc:Bounds x="360" y="187" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1xl6ju1" bpmnElement="Activity_0grqz2w">
+        <dc:Bounds x="530" y="380" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0bgx4wp" bpmnElement="Activity_0ahxc3c">
+        <dc:Bounds x="530" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1vp68m9" bpmnElement="Gateway_1o98k5e" isMarkerVisible="true">
+        <dc:Bounds x="485" y="202" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1d73wc9" bpmnElement="Activity_0a631tx">
+        <dc:Bounds x="690" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_07c8o4j" bpmnElement="Activity_0erpte3">
+        <dc:Bounds x="870" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_00pk5xi_di" bpmnElement="Activity_15i40in">
+        <dc:Bounds x="1040" y="187" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="209" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0y8m5ix_di" bpmnElement="Activity_19op8jl">
+        <dc:Bounds x="230" y="187" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1du5u9u" bpmnElement="Activity_10wxh5v">
+        <dc:Bounds x="690" y="380" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_05kyy0d" bpmnElement="Activity_0spuve4">
+        <dc:Bounds x="870" y="380" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_05hmsju_di" bpmnElement="Flow_05hmsju">
+        <di:waypoint x="330" y="227" />
+        <di:waypoint x="360" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1534p0m_di" bpmnElement="Flow_1534p0m">
+        <di:waypoint x="460" y="227" />
+        <di:waypoint x="485" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1oqmjg2_di" bpmnElement="Flow_1oqmjg2">
+        <di:waypoint x="510" y="252" />
+        <di:waypoint x="510" y="420" />
+        <di:waypoint x="530" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01i2xzr_di" bpmnElement="Flow_01i2xzr">
+        <di:waypoint x="510" y="202" />
+        <di:waypoint x="510" y="120" />
+        <di:waypoint x="530" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0chaoeq_di" bpmnElement="Flow_0chaoeq">
+        <di:waypoint x="630" y="120" />
+        <di:waypoint x="690" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kbjpz2_di" bpmnElement="Flow_1kbjpz2">
+        <di:waypoint x="790" y="120" />
+        <di:waypoint x="870" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vg0yxm_di" bpmnElement="Flow_0vg0yxm">
+        <di:waypoint x="970" y="120" />
+        <di:waypoint x="995" y="120" />
+        <di:waypoint x="995" y="227" />
+        <di:waypoint x="1040" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09vwpin_di" bpmnElement="Flow_09vwpin">
+        <di:waypoint x="188" y="227" />
+        <di:waypoint x="230" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_071l7oz_di" bpmnElement="Flow_071l7oz">
+        <di:waypoint x="630" y="420" />
+        <di:waypoint x="690" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0tziutw_di" bpmnElement="Flow_0tziutw">
+        <di:waypoint x="790" y="420" />
+        <di:waypoint x="870" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0v0abd5_di" bpmnElement="Flow_0v0abd5">
+        <di:waypoint x="970" y="420" />
+        <di:waypoint x="1005" y="420" />
+        <di:waypoint x="1005" y="257" />
+        <di:waypoint x="1040" y="257" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

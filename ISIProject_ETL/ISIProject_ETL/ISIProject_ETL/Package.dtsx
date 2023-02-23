@@ -1,0 +1,2354 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/21/2023 1:25:34 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-J2DSCI9"
+  DTS:CreatorName="DESKTOP-J2DSCI9\jkupi"
+  DTS:DTSID="{328AF86E-12B1-42FE-9818-A6315CECC089}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{D3F19E92-900E-4289-9DC5-53D757226F82}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_exchange]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F783CB2C-CB5E-4158-BF7B-C84616EDA59D}"
+      DTS:ObjectName="DESKTOP-J2DSCI9.isi_exchange">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-J2DSCI9;Initial Catalog=isi_exchange;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_Fin]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E8F29444-6E6B-4806-9ADB-4F233F69BD47}"
+      DTS:ObjectName="DESKTOP-J2DSCI9.isi_Fin">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-J2DSCI9;Initial Catalog=isi_Fin;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_hr]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{58A7C30C-764E-44BC-AA7E-F80C7A0F2C16}"
+      DTS:ObjectName="DESKTOP-J2DSCI9.isi_hr">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-J2DSCI9;Initial Catalog=isi_hr;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_Wallets]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BBF6B37E-DA98-4B75-B74C-7560263E2439}"
+      DTS:ObjectName="DESKTOP-J2DSCI9.isi_Wallets">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-J2DSCI9;Initial Catalog=isi_Wallets;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-J2DSCI9.master]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{17AF7C64-3B4F-43F4-A510-110DE820DA1D}"
+      DTS:ObjectName="DESKTOP-J2DSCI9.master">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-J2DSCI9;Initial Catalog=master;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-J2DSCI9.Users]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D3FE6E02-5CC5-4DD4-AF82-623D16B73904}"
+      DTS:ObjectName="DESKTOP-J2DSCI9.Users">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-J2DSCI9;Initial Catalog=Users;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\countMarketCap"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D61EC3F6-5B27-40F1-881E-51D1B9B28A33}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="countMarketCap"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\countMarketCap\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\countMarketCap\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countMarketCap\Derived Column.Inputs[Derived Column Input].Columns[usdPrice]"
+                      cachedDataType="i8"
+                      cachedName="usdPrice"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[usdPrice]" />
+                    <inputColumn
+                      refId="Package\countMarketCap\Derived Column.Inputs[Derived Column Input].Columns[circulatingSupply]"
+                      cachedDataType="i8"
+                      cachedName="circulatingSupply"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[circulatingSupply]" />
+                    <inputColumn
+                      refId="Package\countMarketCap\Derived Column.Inputs[Derived Column Input].Columns[eurPrice]"
+                      cachedDataType="i8"
+                      cachedName="eurPrice"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[eurPrice]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\countMarketCap\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\countMarketCap\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countMarketCap\Derived Column.Outputs[Derived Column Output].Columns[usdMarketCap]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\countMarketCap\Derived Column.Outputs[Derived Column Output].Columns[usdMarketCap]"
+                      name="usdMarketCap"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[usdPrice]} * #{Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[circulatingSupply]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">usdPrice * circulatingSupply</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countMarketCap\Derived Column.Outputs[Derived Column Output].Columns[eurMarketCap]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\countMarketCap\Derived Column.Outputs[Derived Column Output].Columns[eurMarketCap]"
+                      name="eurMarketCap"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[eurPrice]} * #{Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[circulatingSupply]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">eurPrice * circulatingSupply</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\countMarketCap\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\countMarketCap\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countMarketCap\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\countMarketCap\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\countMarketCap\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\countMarketCap\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countMarketCap\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[marketCap]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\countMarketCap\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_exchange]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_exchange]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cryptoName]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cryptoName"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cryptoName]"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[cryptoName]" />
+                    <inputColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[usdMarketCap]"
+                      cachedDataType="i8"
+                      cachedName="usdMarketCap"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[usdMarketCap]"
+                      lineageId="Package\countMarketCap\Derived Column.Outputs[Derived Column Output].Columns[usdMarketCap]" />
+                    <inputColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[eurMarketCap]"
+                      cachedDataType="i8"
+                      cachedName="eurMarketCap"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[eurMarketCap]"
+                      lineageId="Package\countMarketCap\Derived Column.Outputs[Derived Column Output].Columns[eurMarketCap]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="cryptoName" />
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[usdMarketCap]"
+                      dataType="i8"
+                      name="usdMarketCap" />
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[eurMarketCap]"
+                      dataType="i8"
+                      name="eurMarketCap" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\countMarketCap\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\countMarketCap\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\countMarketCap\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countMarketCap\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[crypto]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\countMarketCap\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_exchange]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_exchange]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cryptoName]"
+                      length="255"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[cryptoName]"
+                      name="cryptoName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[usdPrice]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[usdPrice]"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[usdPrice]"
+                      name="usdPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[eurPrice]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[eurPrice]"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[eurPrice]"
+                      name="eurPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[circulatingSupply]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[circulatingSupply]"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].Columns[circulatingSupply]"
+                      name="circulatingSupply"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="cryptoName" />
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[usdPrice]"
+                      dataType="i8"
+                      name="usdPrice" />
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[eurPrice]"
+                      dataType="i8"
+                      name="eurPrice" />
+                    <externalMetadataColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[circulatingSupply]"
+                      dataType="i8"
+                      name="circulatingSupply" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i8"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cryptoName]"
+                      name="cryptoName" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[usdPrice]"
+                      dataType="i8"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[usdPrice]"
+                      name="usdPrice" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[eurPrice]"
+                      dataType="i8"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[eurPrice]"
+                      name="eurPrice" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[circulatingSupply]"
+                      dataType="i8"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[circulatingSupply]"
+                      name="circulatingSupply" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\countMarketCap.Paths[Derived Column Output]"
+              endId="Package\countMarketCap\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\countMarketCap\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\countMarketCap.Paths[OLE DB Source Output]"
+              endId="Package\countMarketCap\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\countMarketCap\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\countValue"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{120ED678-F3F2-4D52-9581-51E8828C818F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="countValue"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\countValue\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\countValue\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countValue\Conditional Split.Inputs[Conditional Split Input].Columns[wallet_id]"
+                      cachedDataType="i8"
+                      cachedName="wallet_id"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[wallet_id]" />
+                    <inputColumn
+                      refId="Package\countValue\Conditional Split.Inputs[Conditional Split Input].Columns[value]"
+                      cachedDataType="i8"
+                      cachedName="value"
+                      lineageId="Package\countValue\Derived Column 1.Outputs[Derived Column Output].Columns[value]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\countValue\Conditional Split.Outputs[UPDATE]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="UPDATE"
+                  synchronousInputId="Package\countValue\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\countValue\Derived Column 1.Outputs[Derived Column Output].Columns[value]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(value)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\countValue\Conditional Split.Outputs[INSERT]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="INSERT"
+                  synchronousInputId="Package\countValue\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[wallet_id]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(wallet_id)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\countValue\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\countValue\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\countValue\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\countValue\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\countValue\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\countValue\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\countValue\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countValue\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\countValue\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countValue\Derived Column 1.Inputs[Derived Column Input].Columns[usdPrice]"
+                      cachedDataType="i8"
+                      cachedName="usdPrice"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[usdPrice]" />
+                    <inputColumn
+                      refId="Package\countValue\Derived Column 1.Inputs[Derived Column Input].Columns[amount]"
+                      cachedDataType="i8"
+                      cachedName="amount"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\countValue\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\countValue\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\Derived Column 1.Outputs[Derived Column Output].Columns[value]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\countValue\Derived Column 1.Outputs[Derived Column Output].Columns[value]"
+                      name="value"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[usdPrice]} * #{Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[amount]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">usdPrice * amount</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\countValue\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\countValue\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\countValue\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\countValue\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\countValue\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countValue\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\countValue\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[amount]"
+                      cachedDataType="i8"
+                      cachedName="amount"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[amount]" />
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[wallet_id]"
+                      cachedDataType="i8"
+                      cachedName="wallet_id"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[wallet_id]" />
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[crypto_name]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="crypto_name"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[crypto_name]" />
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[user_id]"
+                      cachedDataType="i8"
+                      cachedName="user_id"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[user_id]" />
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[value]"
+                      cachedDataType="i8"
+                      cachedName="value"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[value]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\countValue\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[usdPrice]"
+                      cachedDataType="i8"
+                      cachedName="usdPrice"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[usdPrice]" />
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[cryptoName]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cryptoName"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[cryptoName]" />
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[eurPrice]"
+                      cachedDataType="i8"
+                      cachedName="eurPrice"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[eurPrice]" />
+                    <inputColumn
+                      refId="Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[circulatingSupply]"
+                      cachedDataType="i8"
+                      cachedName="circulatingSupply"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[circulatingSupply]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\countValue\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[usdPrice]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[usdPrice]"
+                      name="usdPrice">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[usdPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[amount]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[amount]"
+                      name="amount"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[amount]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[wallet_id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[wallet_id]"
+                      name="wallet_id"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[wallet_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[crypto_name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[crypto_name]"
+                      name="crypto_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[crypto_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[user_id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[user_id]"
+                      name="user_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Left Input].Columns[user_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[id]"
+                      name="id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[cryptoName]"
+                      name="cryptoName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[cryptoName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[eurPrice]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[eurPrice]"
+                      name="eurPrice">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[eurPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[circulatingSupply]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[circulatingSupply]"
+                      name="circulatingSupply">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\countValue\Merge Join.Inputs[Merge Join Right Input].Columns[circulatingSupply]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countValue\OLE DB Destination 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[wallets]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\countValue\OLE DB Destination 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-J2DSCI9.master]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-J2DSCI9.master]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[value]"
+                      cachedDataType="i8"
+                      cachedName="value"
+                      externalMetadataColumnId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[value]"
+                      lineageId="Package\countValue\Derived Column 1.Outputs[Derived Column Output].Columns[value]" />
+                    <inputColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[amount]"
+                      cachedDataType="i8"
+                      cachedName="amount"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[amount]" />
+                    <inputColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[crypto_name]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="crypto_name"
+                      externalMetadataColumnId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[crypto_name]"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[crypto_name]" />
+                    <inputColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[user_id]"
+                      cachedDataType="i8"
+                      cachedName="user_id"
+                      externalMetadataColumnId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[user_id]" />
+                    <inputColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[wallet_id]"
+                      cachedDataType="i8"
+                      cachedName="wallet_id"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[wallet_id]"
+                      lineageId="Package\countValue\Merge Join.Outputs[Merge Join Output].Columns[wallet_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[wallet_id]"
+                      dataType="i8"
+                      name="wallet_id" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      dataType="i8"
+                      name="amount" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[crypto_name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="crypto_name" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                      dataType="i8"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[value]"
+                      dataType="i8"
+                      name="value" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\countValue\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\countValue\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\countValue\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countValue\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[wallets]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\countValue\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-J2DSCI9.master]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-J2DSCI9.master]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wallet_id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[wallet_id]"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wallet_id]"
+                      name="wallet_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[amount]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[amount]"
+                      name="amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[crypto_name]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[crypto_name]"
+                      length="255"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[crypto_name]"
+                      name="crypto_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[user_id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[user_id]"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[user_id]"
+                      name="user_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[value]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[value]"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[value]"
+                      name="value"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[wallet_id]"
+                      dataType="i8"
+                      name="wallet_id" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      dataType="i8"
+                      name="amount" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[crypto_name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="crypto_name" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[user_id]"
+                      dataType="i8"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[value]"
+                      dataType="i8"
+                      name="value" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[wallet_id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[wallet_id]"
+                      name="wallet_id" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      dataType="i8"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      name="amount" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[crypto_name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[crypto_name]"
+                      name="crypto_name" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[user_id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[user_id]"
+                      name="user_id" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[value]"
+                      dataType="i8"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[value]"
+                      name="value" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countValue\OLE DB Source 2"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 2"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[crypto]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\countValue\OLE DB Source 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_exchange]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-J2DSCI9.isi_exchange]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[cryptoName]"
+                      length="255"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[cryptoName]"
+                      name="cryptoName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[usdPrice]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[usdPrice]"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[usdPrice]"
+                      name="usdPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[eurPrice]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[eurPrice]"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[eurPrice]"
+                      name="eurPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[circulatingSupply]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[circulatingSupply]"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[circulatingSupply]"
+                      name="circulatingSupply"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="cryptoName" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[usdPrice]"
+                      dataType="i8"
+                      name="usdPrice" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[eurPrice]"
+                      dataType="i8"
+                      name="eurPrice" />
+                    <externalMetadataColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].ExternalColumns[circulatingSupply]"
+                      dataType="i8"
+                      name="circulatingSupply" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[cryptoName]"
+                      name="cryptoName" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[usdPrice]"
+                      dataType="i8"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[usdPrice]"
+                      name="usdPrice" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[eurPrice]"
+                      dataType="i8"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[eurPrice]"
+                      name="eurPrice" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[circulatingSupply]"
+                      dataType="i8"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[circulatingSupply]"
+                      name="circulatingSupply" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countValue\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\countValue\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countValue\Sort.Inputs[Sort Input].Columns[wallet_id]"
+                      cachedDataType="i8"
+                      cachedName="wallet_id"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wallet_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\countValue\Sort.Inputs[Sort Input].Columns[amount]"
+                      cachedDataType="i8"
+                      cachedName="amount"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[amount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\countValue\Sort.Inputs[Sort Input].Columns[crypto_name]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="crypto_name"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[crypto_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\countValue\Sort.Inputs[Sort Input].Columns[user_id]"
+                      cachedDataType="i8"
+                      cachedName="user_id"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[user_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\countValue\Sort.Inputs[Sort Input].Columns[value]"
+                      cachedDataType="i8"
+                      cachedName="value"
+                      lineageId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[value]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\countValue\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\Sort.Outputs[Sort Output].Columns[wallet_id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[wallet_id]"
+                      name="wallet_id"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wallet_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Sort.Outputs[Sort Output].Columns[amount]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[amount]"
+                      name="amount"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[amount]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Sort.Outputs[Sort Output].Columns[crypto_name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[crypto_name]"
+                      name="crypto_name"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[crypto_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Sort.Outputs[Sort Output].Columns[user_id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[user_id]"
+                      name="user_id"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[user_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Sort.Outputs[Sort Output].Columns[value]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Sort.Outputs[Sort Output].Columns[value]"
+                      name="value"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[value]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\countValue\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\countValue\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\countValue\Sort 1.Inputs[Sort Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\countValue\Sort 1.Inputs[Sort Input].Columns[cryptoName]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cryptoName"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[cryptoName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\countValue\Sort 1.Inputs[Sort Input].Columns[usdPrice]"
+                      cachedDataType="i8"
+                      cachedName="usdPrice"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[usdPrice]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\countValue\Sort 1.Inputs[Sort Input].Columns[eurPrice]"
+                      cachedDataType="i8"
+                      cachedName="eurPrice"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[eurPrice]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\countValue\Sort 1.Inputs[Sort Input].Columns[circulatingSupply]"
+                      cachedDataType="i8"
+                      cachedName="circulatingSupply"
+                      lineageId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[circulatingSupply]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\countValue\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[id]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[id]"
+                      name="id"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[cryptoName]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[cryptoName]"
+                      name="cryptoName"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[cryptoName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[usdPrice]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[usdPrice]"
+                      name="usdPrice"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[usdPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[eurPrice]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[eurPrice]"
+                      name="eurPrice"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[eurPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[circulatingSupply]"
+                      dataType="i8"
+                      lineageId="Package\countValue\Sort 1.Outputs[Sort Output].Columns[circulatingSupply]"
+                      name="circulatingSupply"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output].Columns[circulatingSupply]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\countValue.Paths[Conditional Split Default Output]"
+              endId="Package\countValue\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              name="Conditional Split Default Output"
+              startId="Package\countValue\Conditional Split.Outputs[Conditional Split Default Output]" />
+            <path
+              refId="Package\countValue.Paths[Derived Column Output]"
+              endId="Package\countValue\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\countValue\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\countValue.Paths[Merge Join Output]"
+              endId="Package\countValue\Derived Column 1.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\countValue\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\countValue.Paths[OLE DB Source Output]"
+              endId="Package\countValue\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\countValue\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\countValue.Paths[OLE DB Source Output1]"
+              endId="Package\countValue\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\countValue\OLE DB Source 2.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\countValue.Paths[Sort Output]"
+              endId="Package\countValue\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\countValue\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\countValue.Paths[Sort Output1]"
+              endId="Package\countValue\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\countValue\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\countMarketCap"
+          TopLeft="502.499972544612,225.333331766394" />
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\countValue"
+          TopLeft="334.999981696408,181.999998734395" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\countMarketCap">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\countMarketCap\OLE DB Destination"
+          TopLeft="376.999994382262,440.999993428588" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\countMarketCap\Derived Column"
+          TopLeft="381.999994307757,320.999995216727" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\countMarketCap\OLE DB Source"
+          TopLeft="373.999994426966,165.999997526407" />
+        <EdgeLayout
+          Id="Package\countMarketCap.Paths[OLE DB Source Output]"
+          TopLeft="449.999994426966,207.599997526407">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.7999998807908,113.39999769032"
+              Start="0,0"
+              End="76.7999998807908,105.89999769032">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.6999988451601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.6999988451601"
+                    Point2="0,56.6999988451601"
+                    Point3="4,56.6999988451601" />
+                  <mssgle:LineSegment
+                    End="72.7999998807908,56.6999988451601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.7999998807908,56.6999988451601"
+                    Point2="76.7999998807908,56.6999988451601"
+                    Point3="76.7999998807908,60.6999988451601" />
+                  <mssgle:LineSegment
+                    End="76.7999998807908,105.89999769032" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\countMarketCap.Paths[Derived Column Output]"
+          TopLeft="460.499994345009,362.599995216727">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.3999982118603"
+              Start="0,0"
+              End="0,70.8999982118603">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.8999982118603" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\countMarketCap\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\countMarketCap\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\countValue">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\countValue\OLE DB Destination 1"
+          TopLeft="205.333355473146,513.399993006984" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\countValue\Merge Join"
+          TopLeft="222.500022314488,280.399996930361" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\countValue\Sort 1"
+          TopLeft="347.500020451842,190.399998271466" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\countValue\OLE DB Source 1"
+          TopLeft="109.500023998319,60" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\countValue\OLE DB Source 2"
+          TopLeft="322.500020824371,85.99999961257" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\countValue\Derived Column 1"
+          TopLeft="204.333355885412,352.399995134275" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\countValue\Sort"
+          TopLeft="153.500023342668,175.399998494983" />
+        <EdgeLayout
+          Id="Package\countValue.Paths[Sort Output1]"
+          TopLeft="400.700020451842,231.999998271466">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-93.1333314706873,48.399998658895"
+              Start="0,0"
+              End="-93.1333314706873,40.899998658895">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.6858528636866" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.6858528636866"
+                    Point2="0,28.6858528636866"
+                    Point3="-4,28.6858528636866" />
+                  <mssgle:LineSegment
+                    End="-89.1333314706873,28.6858528636866" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-89.1333314706873,28.6858528636866"
+                    Point2="-93.1333314706873,28.6858528636866"
+                    Point3="-93.1333314706873,32.6858528636866" />
+                  <mssgle:LineSegment
+                    End="-93.1333314706873,40.899998658895" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\countValue.Paths[Sort Output]"
+          TopLeft="202.300023342668,216.999998494983">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.9999989718198,63.399998435378"
+              Start="0,0"
+              End="84.9999989718198,55.899998435378">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.699999217689" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.699999217689"
+                    Point2="0,31.699999217689"
+                    Point3="4,31.699999217689" />
+                  <mssgle:LineSegment
+                    End="80.9999989718198,31.699999217689" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.9999989718198,31.699999217689"
+                    Point2="84.9999989718198,31.699999217689"
+                    Point3="84.9999989718198,35.699999217689" />
+                  <mssgle:LineSegment
+                    End="84.9999989718198,55.899998435378" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\countValue.Paths[OLE DB Source Output1]"
+          TopLeft="401.800020638107,127.59999961257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.799998658896"
+              Start="0,0"
+              End="0,55.299998658896">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.299998658896" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\countValue.Paths[OLE DB Source Output]"
+          TopLeft="189.900023998319,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.399999344349,73.799998494983"
+              Start="0,0"
+              End="12.399999344349,66.299998494983">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8999992474915" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8999992474915"
+                    Point2="0,36.8999992474915"
+                    Point3="4,36.8999992474915" />
+                  <mssgle:LineSegment
+                    End="8.39999934434903,36.8999992474915" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.39999934434903,36.8999992474915"
+                    Point2="12.399999344349,36.8999992474915"
+                    Point3="12.399999344349,40.8999992474915" />
+                  <mssgle:LineSegment
+                    End="12.399999344349,66.299998494983" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\countValue.Paths[Merge Join Output]"
+          TopLeft="286.21668909995,321.999996930361">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.3999982039135"
+              Start="0,0"
+              End="0,22.8999982039135">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8999982039135" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\countValue\Conditional Split"
+          TopLeft="211.66665510171,428.133330356148" />
+        <EdgeLayout
+          Id="Package\countValue.Paths[Derived Column Output]"
+          TopLeft="286.800005493561,393.999995134275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.133335221873"
+              Start="0,0"
+              End="0,26.633335221873">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.633335221873" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\countValue.Paths[Conditional Split Default Output]"
+          TopLeft="291.900005287428,469.733330356148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.6666626508369"
+              Start="0,0"
+              End="0,36.1666626508369">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.1666626508369" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\countValue\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

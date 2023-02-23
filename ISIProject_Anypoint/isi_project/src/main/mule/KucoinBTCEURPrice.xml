@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="KucoinBTCEURPrice" doc:id="0e445a8f-9086-49be-be09-880d06238341" >
+		<http:listener doc:name="Listener" doc:id="14c364e7-29f4-4822-be59-db6a61c71d90" config-ref="HTTP_Listener_config" path="/kucoin/eur" />
+		<http:request method="GET" doc:name="Request" doc:id="c05c12c7-182f-4d48-b235-270e64725e4f" config-ref="HTTP_Request_configuration_kucoin_eur" url="https://api.kucoin.com/api/v1/market/stats?symbol=BTC-EUR" />
+		<logger level="INFO" doc:name="Logger1" doc:id="727addd9-2050-48f0-806a-b22d6efa1933" message="Cena BTC/USD na giełdzie KuCoin to:  #[payload.data.sell]" />
+		<ee:transform doc:name="Transform Message" doc:id="33b8d994-39a5-417c-bc6c-d63552637006" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	kucoinPrice: payload.data.buy as Number
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
